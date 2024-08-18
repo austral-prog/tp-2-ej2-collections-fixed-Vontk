@@ -7,23 +7,42 @@ import java.util.Map;
 public class Maps {
 
     public Map<String, Integer> createInventory(List<String> items) {
-        // todo: Implement the logic to create a map that tracks the count of each item in the list
-        return null;
+        Map<String, Integer> result = new HashMap<>();
+        for(int i = 0;i < items.size(); i++){
+            if (result.get(items.get(i)) != null) {
+                result.put(items.get(i), result.get(items.get(i) +1 ));
+            }
+            else {
+                result.put(items.get(i), 1);
+            }
+        }
+        return result;
     }
 
     public Map<String, Integer> addItems(Map<String, Integer> inventory, List<String> items) {
-        // todo: Implement the logic to add or increment items in the inventory using elements from the items list
-        return null;
+        for(int i = 0;i < items.size(); i++){
+            if (inventory.get(items.get(i)) == null) {
+                inventory.put(items.get(i), 1);
+            }
+            else {
+                inventory.put(items.get(i), inventory.get(items.get(i)) + 1);
+            }
+        }
+        return inventory;
     }
 
     public Map<String, Integer> decrementItems(Map<String, Integer> inventory, List<String> items) {
-        // todo: Implement the logic to decrement items in the inventory using elements from the items list
-        return null;
+        for(int i = 0;i < items.size(); i++){
+            if (inventory.get(items.get(i)) != null && inventory.get(items.get(i)) > 0) {
+                inventory.put(items.get(i), inventory.get(items.get(i)) - 1);
+            }
+        }
+        return inventory;
     }
 
     public Map<String, Integer> removeItem(Map<String, Integer> inventory, String item) {
-        // todo: Implement the logic to remove an item from the inventory if it matches the item string
-        return null;
+        inventory.remove(item);
+        return inventory;
     }
 
     public List<Map.Entry<String, Integer>> listInventory(Map<String, Integer> inventory) {
