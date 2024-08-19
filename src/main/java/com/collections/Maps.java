@@ -1,5 +1,6 @@
 package com.collections;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +47,10 @@ public class Maps {
     }
 
     public List<Map.Entry<String, Integer>> listInventory(Map<String, Integer> inventory) {
-        // todo: Implement the logic to create a list containing all (item_name, item_count) pairs in the inventory
-        return null;
+        ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
+            list.add(entry);
+        }
+        return list;
     }
 }
