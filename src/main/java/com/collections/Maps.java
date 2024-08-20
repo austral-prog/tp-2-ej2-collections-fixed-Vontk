@@ -11,7 +11,7 @@ public class Maps {
         Map<String, Integer> result = new HashMap<>();
         for(int i = 0;i < items.size(); i++){
             if (result.get(items.get(i)) != null) {
-                result.put(items.get(i), result.get(items.get(i) +1 ));
+                result.put(items.get(i), result.get(items.get(i)) +1 );
             }
             else {
                 result.put(items.get(i), 1);
@@ -49,7 +49,9 @@ public class Maps {
     public List<Map.Entry<String, Integer>> listInventory(Map<String, Integer> inventory) {
         ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
-            list.add(entry);
+            if (entry.getValue() > 0) {
+                list.add(entry);
+            }
         }
         return list;
     }
